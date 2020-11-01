@@ -8,7 +8,7 @@ def divisible_by_7(x):
    if x % 7 == 0:
       return True 
    # not divisible by 7 
-   return false 
+   return False 
 
 
 
@@ -37,26 +37,31 @@ def compare_it(x, y):
 
 
 # TODO: Write a function called keyword_counter that takes three parameters
-def keyword_counter(words, string, filename):
+def keyword_counter(words, search_string = None, filename = None):
 # Parameter one should be a list of words.
-   words = ('')
-   
 # The second should be set to None by default, and could hold a string to search.
-   string = 
-
 # The third should be set to None by default, and could hold a filename to search.
-   filename = 
-
 # If a string and a filename are both passed to the program, the program should 
 # return None.
-
-return None 
+   if search_string == None and filename == None or (search_string != None and filename != None):
+      return None 
 
 # If the function is passed a string in the second parameter, then it should
 # search the string.
+if search_string != None:
+   text = search_string 
+#search a string for words and count them 
+output = dict()
+text = text.lower()
+for word in words:
+   word = word.lower()
+   output[word] = text.count(words)
 
 # If the function is passed a filename in the third parameter, then it should
 # read the file and search the contents of the file.
+else: 
+   with open(filename, "r") as f:
+      text = f.read().replace("\n", " ")
 
 # Unless the function is passed both a string and a filename, your function 
 # must return a dictionary with the keywords as the key and the count of 
@@ -69,8 +74,5 @@ return None
 # one of the words is "fish" your function should count 
 # "fish", "Fish", "FISH" or any other combination of 
 # capitalization as an occurrence. 
-file_name = "test6_1.txt" # DELETE THIS LINE before you build the function.
-with open(file_name, "r") as f:
-   text = f.read().replace("\n", " ")
 
 
